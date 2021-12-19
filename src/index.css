@@ -1,0 +1,114 @@
+body, a, input, ul, label, form, label {
+    padding: 0;
+    margin: 0;
+  }
+  /* body, .playmain > div, .search-result, .collection  {
+    background-color: hsl(0, 0%, 100%)!important;
+  }
+  .playlist div,.headbar div,.lrc-wrapper,.playmain span {
+    color: hsl(0, 0%, 4%)!important;
+  }
+  svg, button,.playmain span:nth-of-type(2) {
+    color: hsl(240, 0%, 0%)!important;
+    fill:  hsl(101, 10%, 0%)!important;
+  } */
+
+
+/* Material-UI darkBaseThem */
+body {
+  background-color: rgb(48, 48, 48);
+}
+/*
+a, i {
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover, i:hover {
+  color: #CACACA;
+}
+.music-app {
+  width: 100%;
+} */
+
+.headbar {
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+}
+
+.l-m-s-c-wrapper {
+  width: 1000px;
+  margin: 10px auto;
+}
+
+.list-main-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.playlist {
+  width: 600px;
+  float: left;
+}
+
+.playmain {
+  width: 300px;
+  float: right;
+  margin-left: 80px;
+}
+
+.collection, .search-result, .comment-list {
+  position: relative;
+  width: 1000px;
+  height: 630px;
+  margin: 0px auto;
+  /* padding-top: 20px; */
+  background-color: rgb(43, 43, 43);
+  /* background-color: rgb(228, 227, 227); */
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+
+
+.spectrum {
+  width: 100%;
+  height: 110px;
+  margin-top: 0px;
+}
+
+.controllerbar {
+  width: 100%;
+  height: 50px;
+  margin-top: 30px;
+  margin-bottom: 10px
+}
+
+
+  div[class ~= portal-shade] {
+    margin: 50px 0 80px;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100
+}
+body::-webkit-scrollbar,.item-wrapper::-webkit-scrollbar{
+  display: none;
+  /* background-color: rgb(139, 139, 139);
+  color: #000 */
+
+}
+
+li[data-timeline] {
+  list-style: none;
+  padding-top: 10px 
+}
+li.now[data-timeline]{
+  color: rgb(119, 178, 255)
+}
+
+/* .playlist span {color: #000!important;}
+svg, button,.playmain span:nth-of-type(2) {color: hsl(240, 0%, 0%)!important;fill:  hsl(101, 10%, 0%)!important;}
+.collection, .search-result, .comment-list {background-color: rgb(255, 255, 255)!important;} */
