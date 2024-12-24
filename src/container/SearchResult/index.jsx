@@ -107,6 +107,7 @@ class SearchResult extends Component {
           content = singles.map(item => {
             return (
               <ListItem
+                key={item.id}
                 primaryText={item.name}
                 secondaryText={`${item.artist} - ${item.albumName}`}
                 rightIcon={
@@ -149,9 +150,10 @@ class SearchResult extends Component {
                 primaryText={item.name}
                 secondaryText={secondaryText}
                 leftAvatar={
-                  <Avatar src={item.coverURL} />
+                  <Avatar style={{ borderRadius: 'none' }} src={item.coverURL} />
                 }
                 rightIconButton={rightIconMenu}
+                key={item.coverURL}
               />
             )
           })
@@ -177,12 +179,12 @@ class SearchResult extends Component {
 
           <Tabs onChange={this.handleTabChange}>
             <Tab label="单曲" value="a">
-              <div style={{overflow:'auto', height:370}} className='item-wrapper'>
+              <div style={{overflow:'auto', height:440}} className='item-wrapper'>
                 {content}
               </div>
             </Tab>
             <Tab label="专辑" value="b">
-              <div style={{overflow:'auto', height:370}} className='item-wrapper'>
+              <div style={{overflow:'auto', height:440}} className='item-wrapper'>
                 {content}  
               </div>
             </Tab>

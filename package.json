@@ -1,7 +1,7 @@
 {
-  "name": "r-d-m",
+  "name": "reactdoubanmusic",
   "version": "0.1.0",
-  "homepage": "https://huangjiaqi1997.github.io/rdm",
+  "homepage": "http://39.102.209.112:8003/doubanmusic",
   "private": true,
   "dependencies": {
     "@babel/core": "7.1.0",
@@ -45,7 +45,7 @@
     "postcss-safe-parser": "4.0.1",
     "react": "^16.5.2",
     "react-app-polyfill": "^0.1.3",
-    "react-audio-spectrum": "0.0.9",
+    "react-audio-spectrum": "0.1.0",
     "react-dev-utils": "^6.0.5",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",

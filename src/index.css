@@ -30,16 +30,20 @@ a:hover, i:hover {
 .music-app {
   width: 100%;
 } */
-
+.app {
+  width: 1000px;
+  height: 100vh;
+  margin: 0px auto;
+}
 .headbar {
-  width: 100%;
-  height: 50px;
+  /* height: 50px; */
   overflow: hidden;
+  padding: 20px 0;
 }
 
 .l-m-s-c-wrapper {
   width: 1000px;
-  margin: 10px auto;
+  margin: 0px auto;
 }
 
 .list-main-wrapper {
@@ -49,6 +53,7 @@ a:hover, i:hover {
 
 .playlist {
   width: 600px;
+  /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px; */
   float: left;
 }
 
@@ -61,7 +66,7 @@ a:hover, i:hover {
 .collection, .search-result, .comment-list {
   position: relative;
   width: 1000px;
-  height: 630px;
+  height: 600px;
   margin: 0px auto;
   /* padding-top: 20px; */
   background-color: rgb(43, 43, 43);
@@ -72,8 +77,10 @@ a:hover, i:hover {
 
 
 .spectrum {
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  height: 110px;
+  height: 120px;
   margin-top: 0px;
 }
 
@@ -86,7 +93,7 @@ a:hover, i:hover {
 
 
   div[class ~= portal-shade] {
-    margin: 50px 0 80px;
+    margin: 80px 0 80px;
     width: 100%;
     height: 400px;
     position: absolute;
@@ -109,6 +116,10 @@ li.now[data-timeline]{
   color: rgb(119, 178, 255)
 }
 
+.chip span {
+  display: flex;
+  align-items: center;
+}
 /* .playlist span {color: #000!important;}
 svg, button,.playmain span:nth-of-type(2) {color: hsl(240, 0%, 0%)!important;fill:  hsl(101, 10%, 0%)!important;}
 .collection, .search-result, .comment-list {background-color: rgb(255, 255, 255)!important;} */

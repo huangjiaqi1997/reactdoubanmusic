@@ -63,8 +63,11 @@ class Collection extends Component {
           </Subheader>
           <Divider></Divider>
 
-
-          <div style={{overflowY:'auto', height:470}}  className='item-wrapper'>
+          {!this.props.collection.length ?
+            <div style={{ textAlign: 'center', marginTop: 230, color: '#ccc' }}>
+              Oops 什么都没有!!
+            </div>
+          : <div style={{overflowY:'auto', height:440}}  className='item-wrapper'>
             {this.props.collection.map((item) => 
               <ListItem
                 key={item.id}
@@ -95,7 +98,7 @@ class Collection extends Component {
                   </div>}
               />
             )}
-          </div>
+          </div>}
 
           
         </List>

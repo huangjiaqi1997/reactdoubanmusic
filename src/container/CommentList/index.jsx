@@ -11,6 +11,7 @@ import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import FlatButton from 'material-ui/FlatButton';
 import {Card, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import CircularProgress from 'material-ui/CircularProgress';
 import { getCommentList } from '../../reducer/song'
 import { sendComment } from '../../reducer/song'
 
@@ -34,7 +35,11 @@ class CommentList extends Component {
 
   componentDidMount() {this.props.getCommentList(this.props.currentId)}
 
-  handleSendComment() {this.props.sendComment(this.state.text, this.props.currentId)}
+  handleSendComment() {
+    console.log('sendComment',this.state.commentText)
+    if (!this.state.commentText) return
+    this.props.sendComment(this.state.commentText, this.props.currentId)
+  }
 
   render() {
     const hotCommentList = this.props.hotCommentList;
@@ -54,44 +59,53 @@ class CommentList extends Component {
           </Subheader>
           <Divider></Divider>
 
-
-          <div style={{overflow:'auto', height:470}}>
-            <div className="hot-comment-item-wrapper">
-              {hotCommentList.length > 0 && hotCommentList.map(item => {
-                const subtitle = getDate(item.time)
-                return <Card key={item.commentID} style={{paddingBottom: 30}}>
-                    <CardHeader
-                      title={item.userName}
-                      subtitle={subtitle}
-                      avatar={item.userAvatarURL}
-                      style={{padding: 10}}
-                    />
-                    <CardText style={{padding: '0 10px 0 50px'}}>
-                      {item.content}
-                    </CardText>
-                  </Card>
-                })
-              }
+          {this.props.isLoading
+          ? <div style={{overflow:'auto', height:440}}><CircularProgress
+            size={60} thickness={7}
+            style={{position: 'absolute',left: '50%',top:'50%',margin:'-30px 0 0 -30px'}}
+            /> </div>
+          : commentList.length
+            ?
+            <div style={{overflow:'auto', height:440}}>
+              <div className="hot-comment-item-wrapper">
+                {hotCommentList.length > 0 && hotCommentList.map(item => {
+                  const subtitle = getDate(item.time)
+                  return <Card className='comment-card' key={item.commentID} style={{paddingBottom: 30, boxShadow: 'none'}}>
+                      <CardHeader
+                        className='comment-header'
+                        title={item.userName}
+                        subtitle={subtitle}
+                        avatar={item.userAvatarURL}
+                        style={{padding: 10}}
+                      />
+                      <CardText style={{padding: '0 10px 0 50px'}}>
+                        {item.content}
+                      </CardText>
+                    </Card>
+                  })
+                }
+              </div>
+              <div className='comment-item-wrapper'>
+                  {commentList.length === 0
+                  ? '评论是空的！！'
+                  : commentList.map(item => {
+                    const subtitle = getDate(item.time)
+                    return <Card className='comment-card' key={item.commentID} style={{paddingBottom: 30}}>
+                        <CardHeader
+                          className='comment-header'
+                          title={item.userName}
+                          subtitle={subtitle}
+                          avatar={item.userAvatarURL}
+                          style={{padding: 10}}
+                        />
+                        <CardText style={{padding: '0 10px 0 50px'}}>
+                          {item.content}
+                        </CardText>
+                      </Card>
+                  })}
+              </div>
             </div>
-            <div className='comment-item-wrapper'>
-              {commentList.length === 0
-              ? '评论是空的！！'
-              : commentList.map(item => {
-                const subtitle = getDate(item.time)
-                return <Card key={item.commentID} style={{paddingBottom: 30}}>
-                    <CardHeader
-                      title={item.userName}
-                      subtitle={subtitle}
-                      avatar={item.userAvatarURL}
-                      style={{padding: 10}}
-                    />
-                    <CardText style={{padding: '0 10px 0 50px'}}>
-                      {item.content}
-                    </CardText>
-                  </Card>
-                })}
-            </div>
-          </div>
+            :''}
         </List>
 
 
@@ -99,13 +113,11 @@ class CommentList extends Component {
         <TextField
           hintText="说点什么吧！"
           multiLine={true}
-          rows={2}
           rowsMax={4}
-        /><FlatButton
-          onClick={this.handleSendComment}
           onChange={(e)=> this.setState({commentText: e.target.value})}
           value={this.state.commentText}
-        >发送评论</FlatButton>
+        />
+        <FlatButton onClick={this.handleSendComment}>发送评论</FlatButton>
         </div>
 
 
@@ -119,7 +131,8 @@ class CommentList extends Component {
 const mapStateToProps = (state) => ({
   hotCommentList: state.song.commentList.hotComments,
   commentList: state.song.commentList.comments,
-  currentId: state.song.currentSong.id
+  currentId: state.song.currentSong.id,
+  isLoading: state.song.isLoading
 })
 const mapDispatchToProps = (dispatch) => ({
   getCommentList: (songID) => dispatch(getCommentList(songID)),
