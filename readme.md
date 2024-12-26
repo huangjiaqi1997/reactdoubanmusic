@@ -1,16 +1,3 @@
-https://apis.netstart.cn/music
-获取歌单所有歌曲
-/playlist/track/all?id=3778678&limit=10&offset=1
-获取音乐 url
-https://music.163.com/song/media/outer/url?id=1456890009.mp3
-/song/url?id=33894312 /song/url?id=405998841,33894312
-获取音乐 url - 新版
-/song/url/v1?id=33894312&level=exhigh /song/url/v1?id=405998841,33894312&level=lossless
-
-/lyric?id=64093
-
-
-
 主界面
 Headbar
   Login、SearchResult、Collection
@@ -147,3 +134,14 @@ http://musicapi.leanapp.cn/comment?t=0&type=1&id=5436712&commentId=1535550516319
       "changeOrigin":true
     }
   }
+
+https://apis.netstart.cn/music
+获取歌单所有歌曲
+/playlist/track/all?id=3778678&limit=10&offset=1
+获取音乐 url
+https://music.163.com/song/media/outer/url?id=1456890009.mp3
+/song/url?id=33894312 /song/url?id=405998841,33894312
+获取音乐 url - 新版
+/song/url/v1?id=33894312&level=exhigh /song/url/v1?id=405998841,33894312&level=lossless
+
+/lyric?id=64093
